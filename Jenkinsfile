@@ -20,8 +20,9 @@ pipeline {
       }
     }
     stage('Run tests') {
-       withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {
+      
       steps {
+        withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {
         sh "docker run ${dockerImage.id} npm test"
       }
     }
