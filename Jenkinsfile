@@ -20,9 +20,11 @@ pipeline {
       }
     }
     stage('Run tests') {
+       withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {
       steps {
         sh "docker run ${dockerImage.id} npm test"
       }
+    }
     }
     stage('Publish') {
       when {
@@ -46,4 +48,5 @@ pipeline {
     }
   }
 }
-
+[]
+-
