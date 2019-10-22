@@ -6,7 +6,7 @@ pipeline {
   }
 
   environment {
-    ARTIFACT_ID = "jhonmvc/webapp:${env.BUILD_NUMBER}"
+    ARTIFACT_ID = "jhonmc/webapp:${env.BUILD_NUMBER}"
   }
 
   stages {
@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Run tests') {
       steps {
-        /bin/sh "docker run ${dockerImage.id} npm test"
+        sh "docker run ${dockerImage.id} npm test"
       }
     }
     stage('Publish') {
