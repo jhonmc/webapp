@@ -19,10 +19,8 @@ pipeline {
         }
       }
     }
-    stage('Run tests') {
-      
+    stage('Run tests') {    
       steps {
-        
         sh "docker run ${dockerImage.id} npm test"
       }
     }
